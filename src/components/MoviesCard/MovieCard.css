@@ -1,0 +1,50 @@
+.card {
+  background-color: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+.card__title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 0 0 19px 0;
+}
+.card__time {
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8b8b8b;
+}
+.car__data{
+    padding: 14px;
+}
+.card__select{
+    background: url('../../images/selectBlack.svg') no-repeat;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+.card__select:hover{
+    background: url('../../images/selectIcon.svg') no-repeat;
+    width: 30px;
+    height: 30px;
+}
+.car__data{
+    display: flex;
+    justify-content: space-between;
+}
+.card__oblozka{
+width: 100%;
+}
+@media screen and (max-width:769px) {
+    .card__oblozka{
+        width: 339px;
+        height: 190px; 
+    }
+}
+@media screen and (max-width:425px) {
+    .card__oblozka{
+        width: 300px;
+        height: 168px;
+    }
+}

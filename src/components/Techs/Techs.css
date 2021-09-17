@@ -1,0 +1,111 @@
+.techs {
+  background-color: #272727;
+  padding: 90px 10px;
+}
+.common-title-episode {
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+.common-title-episode::after {
+  border-bottom: 1px solid #dadada;
+  content: "";
+  display: flex;
+  margin-top: 23px;
+  width: 100%;
+}
+.techs__block-text {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0 83px 0;
+  padding: 0;
+  align-items: center;
+}
+.techs__title {
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  margin: 0 0 22px 0;
+  padding: 0;
+}
+.techs__subtitile {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 0;
+  margin: 0;
+  width: 33%;
+  text-align: center;
+}
+.techs__technologies {
+  display: grid;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 680px;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  row-gap: 10px;
+}
+.techs__technology {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #303030;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.04em;
+  width: 84px;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.6s linear;
+}
+.techs__technology:hover {
+  background-color: #3ddc84;
+}
+@media screen and (max-width: 769px) {
+  .techs {
+    padding: 90px 50px;
+  }
+  .techs__subtitile {
+    width: 66%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .techs {
+    padding: 90px 20px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .techs__technologies {
+    row-gap: 10px;
+    grid-template-columns: 84px 1fr;
+    margin-left: 20%;
+    margin-right: 20%;
+    column-gap: 10px;
+  }
+  .techs {
+    padding: 70px 18px;
+  }
+  .common-title-episode {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .techs__title{
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .techs__subtitile {
+    font-size: 11px;
+    line-height: 16px;
+    width: 100%;
+  }
+  .techs__block-text {
+    margin: 60px 0 50px 0;
+  }
+}

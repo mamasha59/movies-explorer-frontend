@@ -1,0 +1,93 @@
+.nav-auth {
+  background-color: #202020;
+  padding: 29px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-auth__logo {
+  width: 38px;
+  height: 38px;
+}
+.nav-auth__links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 0 0 44px;
+}
+.nav-auth__box {
+  display: flex;
+}
+.nav-auth__link {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0;
+  border-radius: 3px;
+  transition: 0.4s linear;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.nav-auth__link:hover {
+  background-color: #3ddc84;
+  color: #000000;
+}
+.nav-auth-signup {
+  margin: 0 16px 0 0;
+}
+.nav-auth__account {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 12px;
+  text-decoration: none;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-auth__account-img{
+    padding: 0 0 0 7px;
+    object-fit: contain;
+}
+.nav__burger{
+    display: none;
+}
+@media screen and (max-width: 1170px) {
+    .nav-auth {
+        padding: 29px 10px;
+      }
+  }
+@media screen and (max-width: 769px) {
+    .nav-auth__links {
+        display: none;
+    }
+    .nav__burger{
+        display: block;
+  }
+    .nav__burger{
+        display: block;
+    }
+    .nav-auth__account {
+        display: none;
+    }
+    .nav-auth {
+        padding: 29px 30px;
+      }
+  }
+@media screen and (max-width: 426px) {
+  .nav-auth-signup {
+    margin: 0 14px 0 0;
+  }
+  .nav-auth__link {
+    font-size: 10px;
+    line-height: 16px;
+    padding: 5px 12px;
+  }
+  .nav-auth {
+    padding: 18px 14px;
+  }
+}

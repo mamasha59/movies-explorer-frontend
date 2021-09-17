@@ -1,0 +1,41 @@
+.authform__wraper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.authform__wraper:last-child {
+  margin-bottom: 0;
+}
+.authform__data {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #8b8b8b;
+  margin: 0 0 10px 0;
+}
+.authform-input {
+  max-width: 396px;
+  max-height: 46px;
+  background-color: #2f2f2f;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  padding: 15px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  outline: none;
+}
+.authform__error {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+@media screen and (max-width: 426px) {
+  .authform-input {
+    max-width: 260px;
+  }
+}
