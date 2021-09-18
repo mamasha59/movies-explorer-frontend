@@ -16,9 +16,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
-@media screen and (max-width:769px) {
+.cards__more:hover {
+  opacity: 0.6;
+}
+@media screen and (max-width: 769px) {
   .cards__more {
-  width: 240px;
+    width: 240px;
   }
 }

@@ -15,7 +15,6 @@
 }
 .profile__input {
   background-color: transparent;
-  border: none;
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
@@ -24,6 +23,12 @@
   margin: 0;
   width: 60%;
   text-align: right;
+  border: 1px solid transparent;
+  outline: none;
+  padding: 2px 0;
+}
+.profile__input:focus {
+  border-color: teal;
 }
 .profile__data {
   font-weight: 500;
@@ -40,9 +45,9 @@
   padding: 0 0 16px 0;
   margin: 0 0 17px 0;
 }
-.profile__data:last-of-type{
-    border-bottom: none;
-  }
+.profile__data:last-of-type {
+  border-bottom: none;
+}
 .profile__buttons {
   display: flex;
   flex-direction: column;

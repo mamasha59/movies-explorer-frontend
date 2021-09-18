@@ -52,6 +52,9 @@
 .authform__singup {
   color: #4285f4;
 }
+.authform__singup:hover {
+  opacity: .6;
+}
 .authform__frame{
   min-height: 333px;
 }

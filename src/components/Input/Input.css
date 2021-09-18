@@ -18,13 +18,16 @@
   max-height: 46px;
   background-color: #2f2f2f;
   border-radius: 8px;
-  border: none;
+  border: 1px solid transparent;
   color: #fff;
   padding: 15px;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
   outline: none;
+}
+.authform-input:focus {
+  border-color: thistle;
 }
 .authform__error {
   font-weight: normal;

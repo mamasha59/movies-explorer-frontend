@@ -15,36 +15,45 @@
   line-height: 13px;
   color: #8b8b8b;
 }
-.car__data{
-    padding: 14px;
+.car__data {
+  padding: 14px;
 }
-.card__select{
-    background: url('../../images/selectBlack.svg') no-repeat;
-    width: 30px;
-    height: 30px;
-    border: none;
+.card__select {
+  background: url("../../images/selectBlack.svg") no-repeat;
+  width: 30px;
+  height: 30px;
+  border: none;
 }
-.card__select:hover{
-    background: url('../../images/selectIcon.svg') no-repeat;
-    width: 30px;
-    height: 30px;
+.card__select:hover {
+  background: url("../../images/selectIcon.svg") no-repeat;
+  width: 30px;
+  height: 30px;
 }
-.car__data{
-    display: flex;
-    justify-content: space-between;
+.car__data {
+  display: flex;
+  justify-content: space-between;
 }
-.card__oblozka{
-width: 100%;
+.card__oblozka {
+  width: 100%;
 }
-@media screen and (max-width:769px) {
-    .card__oblozka{
-        width: 339px;
-        height: 190px; 
-    }
+.card__delete {
+  background: url("../../images/deleteMovie.svg") no-repeat;
+  width: 30px;
+  height: 30px;
+  border: none;
 }
-@media screen and (max-width:425px) {
-    .card__oblozka{
-        width: 300px;
-        height: 168px;
-    }
+.card__delete:hover {
+  opacity: 0.6;
+}
+@media screen and (max-width: 769px) {
+  .card__oblozka {
+    width: 339px;
+    height: 190px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .card__oblozka {
+    width: 300px;
+    height: 168px;
+  }
 }
