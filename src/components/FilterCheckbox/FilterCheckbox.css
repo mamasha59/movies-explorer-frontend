@@ -1,0 +1,38 @@
+.checkbox {
+    width: 40px;
+    height: 20px;
+    background-color: #2BE080;
+    position: relative;
+    border-radius: 20px;
+    margin: 0 14px 0 0;
+  }
+  
+  .checkbox__label {
+    background-color: #F5F5F5;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    transition: all 0.4s ease;
+    top: 4px;
+    left: 2px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+  }
+  
+  .checkbox__input {
+    visibility: hidden;
+  }
+  
+  .checkbox__input:checked + .checkbox__label {
+    left: 25px;
+    background-color: white;
+  }
+  @media screen and (max-width: 769px) {
+    .checkbox {
+      margin: 0 0 0 14px;
+    }
+  }
