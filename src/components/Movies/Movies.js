@@ -1,20 +1,22 @@
 import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
-import HeaderAuth from '../Header/components/HeaderAuth/HeaderAuth'
+import HeaderAuth from '../Header/components/HeaderAuth/HeaderAuth';
 import Footer from "../Footer/Footer";
-function Movies() {
+
+function Movies({cards}) {
+
   return (
-    <>
     <section className='common-container additional-option'>
     <HeaderAuth/>
     <SearchForm/>
-    <MoviesCardList/>
+    <MoviesCardList 
+    cards={cards}
+    />
     
     <button className="cards__more">Ещё</button>
     <Footer />
     </section>
-    </> 
   );
 }
 

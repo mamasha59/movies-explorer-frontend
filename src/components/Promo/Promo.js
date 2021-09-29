@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import './Promo.css'
 import banner from '../../images/banner.svg'
 function Promo(){

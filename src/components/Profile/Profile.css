@@ -34,8 +34,6 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
-  padding: 0;
-  margin: 0;
   white-space: nowrap;
   position: relative;
   align-items: center;
@@ -43,7 +41,7 @@
   justify-content: space-between;
   border-bottom: 1px solid #424242;
   padding: 0 0 16px 0;
-  margin: 0 0 17px 0;
+  margin: 0 0 20px 0;
 }
 .profile__data:last-of-type {
   border-bottom: none;
@@ -80,4 +78,27 @@
   .profile__form {
     padding: 0 30px;
   }
+  .profile__data {
+    margin: 0 0 30px 0;
+  }
+}
+.profile__loader {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgb(7 48 66 / 28%);
+  transition: all .5s ease;
+}
+.profile__error{
+  position: absolute;
+  top: 40px;
+  color: #c73412;
+  white-space: normal;
+}
+.profile__edit-button_inactive{
+  opacity: .1;
+  cursor: not-allowed;
 }

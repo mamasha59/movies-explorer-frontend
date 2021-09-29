@@ -10,12 +10,12 @@ import './Main.css'
 function Main(){
     return(
       <>
-          <Header />
-          <Promo />
-          <AboutPtoject />
+          <Header/>
+          <Promo/>
+          <AboutPtoject/>
           <Techs />
-          <AboutMe />
-          <Footer />
+          <AboutMe/>
+          <Footer/>
       </>
     );
 }

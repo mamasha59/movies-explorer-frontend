@@ -1,12 +1,11 @@
 import './Input.css';
 
-function Input({ name, type, placeholder, minLength, maxLength}) {
+function Input(props) {
   return (
     <div className="authform__wraper">
-      <label className="authform__data" >{placeholder}</label>
-      <input className='authform__email authform-input' type={type} name={name} 
-        placeholder={placeholder} required minLength={minLength} maxLength={maxLength}/>
-       <span className='authform__error'>здесь будет ошибка валидации</span> 
+      <label className="authform__data" >{props.placeholder}</label>
+      <input className='authform__email authform-input'  {...props}/>
+      <span className='authform__error'>здесь будет ошибка валидации</span> 
     </div>
   )
 }

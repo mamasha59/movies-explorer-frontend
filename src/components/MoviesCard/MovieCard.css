@@ -35,6 +35,10 @@
 }
 .card__oblozka {
   width: 100%;
+  min-height: 203px;
+  display: block;
+  object-fit: cover;
+  height: 203px;
 }
 .card__delete {
   background: url("../../images/deleteMovie.svg") no-repeat;
