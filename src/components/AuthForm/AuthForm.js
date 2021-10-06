@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './AuthForm.css';
 import logo from '../../images/logo.svg';
 
-function AuthForm({linkText, linkTo, linkSubTo, title, clue, name, onSubmit, ...props}) {
+function AuthForm({linkText, linkTo, linkSubTo, title, clue, name, onSubmit,email , ...props}) {
 
   return (
     <section className='authform'>
@@ -13,8 +13,9 @@ function AuthForm({linkText, linkTo, linkSubTo, title, clue, name, onSubmit, ...
            <form className='authform__form' name={name} onSubmit={onSubmit}> 
               {props.children} 
               <div className='authform__rule'>
-                  <button type='submit' className='authform__enter'>{linkSubTo}</button>
-                  <div className='authform__clue'>{clue} <Link className='authform__singup' to={linkTo}>{linkText}</Link> </div>
+                  <div className='authform__clue'>{clue} 
+                    <Link className='authform__singup' to={linkTo}>{linkText}</Link>
+                  </div>
               </div>
             </form>
 

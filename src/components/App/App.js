@@ -19,7 +19,7 @@ function App() {
   const history = useHistory(); // ----редирект
   const [isloading, setIsLoading] = React.useState(false); // ---состояние прелодера
 
-  React.useEffect(() => { // ----при обновление страницы отображает изера без повторной авторизации
+  React.useEffect(() => { // ----при обновление страницы отображает юзера без повторной авторизации
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       auth.getContent(jwt)
@@ -44,7 +44,7 @@ function App() {
       .finally(()=>{setIsLoading(false)})
   }
 
-  const handleRegister = (email, password, name) => { // ---регистрация
+  const handleRegister = ({email, password, name}) => { // ---регистрация
     setIsLoading(true);
     auth.register(email, password, name)
     .then((res) => {
@@ -86,6 +86,7 @@ function App() {
             console.log("Не загрузились карточки: " + err);
         });
       }, []);
+
   return (
     <CurrentUserContext.Provider value={currentUSer}>
     <div className='body'>
