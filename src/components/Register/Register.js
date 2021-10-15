@@ -31,6 +31,7 @@ function Register({handleRegister,isLoading}) {
     <div className="authform__wraper">
     <label className="authform__data" >Имя</label>
       <input
+        placeholder='Имя'
         className='authform__email authform-input'
         type='text'
         name='name'
@@ -46,6 +47,7 @@ function Register({handleRegister,isLoading}) {
      <div className="authform__wraper">
       <label className="authform__data" >E-mail</label>
           <input
+            placeholder='email'
             className='authform__email authform-input'
             onChange={handleChange} 
             required
@@ -59,7 +61,8 @@ function Register({handleRegister,isLoading}) {
     </div>
       <div className="authform__wraper">
         <label className="authform__data" >Пароль</label>
-        <input 
+        <input
+          placeholder='пароль'
           className='authform__email authform-input'
           onChange={handleChange}
           required

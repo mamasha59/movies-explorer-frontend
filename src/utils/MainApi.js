@@ -74,3 +74,50 @@ export const patchUserData = (item) => { // ---- обновление инфы �
     return Promise.reject(`Ошибка: ${res.status}`);
   })
 }
+export const getMovies = () => {
+  const token = localStorage.getItem('jwt'); 
+  return fetch(`${BASE_URL}/movies`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${token}`,
+    },
+  }).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
+};
+export const deleteMovie = (movieId) => {
+  return fetch(`${BASE_URL}/movies/${movieId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  }).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
+};
+export const saveMovie = (data) => {
+  const token = localStorage.getItem('jwt'); 
+  return fetch(`${BASE_URL}/movies`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  }).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
+};

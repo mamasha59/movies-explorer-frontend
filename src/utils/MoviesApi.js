@@ -1,5 +1,6 @@
+import { BASE_URL_MOVIE } from "./utils";
 export const getMovies = () =>{ // ---получение карточек фильмов с стороннего апи
-    return fetch(' https://api.nomoreparties.co/beatfilm-movies',{
+    return fetch(`${BASE_URL_MOVIE}/beatfilm-movies`, {
         method:'GET',
         headers:{
             Accept: 'application/json',

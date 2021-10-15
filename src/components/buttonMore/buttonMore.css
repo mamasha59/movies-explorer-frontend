@@ -1,0 +1,27 @@
+.cards__more {
+    border: 0;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    background-color: #2f2f2f;
+    border-radius: 6px;
+    width: 320px;
+    height: 36px;
+    margin: 80px auto 179px auto;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .cards__more:hover {
+    opacity: 0.6;
+  }
+  @media screen and (max-width: 769px) {
+    .cards__more {
+      width: 240px;
+    }
+  }
+.cards__more_active {
+    visibility: visible;
+}

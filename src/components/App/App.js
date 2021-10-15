@@ -6,18 +6,16 @@ import Main from '../Main/Main'
 import Movies from "../Movies/Movies";
 import Login from "../Login/Login";
 import Register from '../Register/Register';
-import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from "../Profile/Profile";
 import BigEror from "../404Erorr/BigErorr";
 import { CurrentUserContext }  from '../../context/userContext';
 import * as auth from '../../utils/MainApi';
-import {getMovies} from '../../utils/MoviesApi';
 
 function App() {
   const [currentUSer, setCurrentUser] = React.useState({}); // -- Стейт, отвечающий за данные текущего пользователя
   const [loggedIn, setLoggedIn] = React.useState(false); // ---стейт состояния логина
   const history = useHistory(); // ----редирект
-  const [isloading, setIsLoading] = React.useState(false); // ---состояние прелодера
+  const [isloading, setIsLoading] = React.useState(false); // ---состояние прелодера  
 
   React.useEffect(() => { // ----при обновление страницы отображает юзера без повторной авторизации
     const jwt = localStorage.getItem('jwt');
@@ -43,8 +41,7 @@ function App() {
       .catch((err) => console.log(err))
       .finally(()=>{setIsLoading(false)})
   }
-
-  const handleRegister = ({email, password, name}) => { // ---регистрация
+  const handleRegister = (email, password, name) => { // ---регистрация
     setIsLoading(true);
     auth.register(email, password, name)
     .then((res) => {
@@ -60,33 +57,22 @@ function App() {
     }).finally(()=>{setIsLoading(false)})
     
   }
-    const onSignOuttest = () => { // ---выход
-      setLoggedIn(false);
-      localStorage.removeItem('jwt');
-      setCurrentUser({});
-      history.push('/');
-    }
-
-    function handleUpdateUser(data) {
-      setIsLoading(true);
-      auth.patchUserData(data)
-      .then((userData) => {
-        setCurrentUser(userData)
-      }).catch((err) => {
-          console.log("Не загрузить описание профиля: " + err);
-      }).finally(()=>{setIsLoading(false)})
-    } 
-
-    const [cards, setCards] = React.useState([]);
-
-    React.useEffect(() => {
-      getMovies()
-      .then(cardList => setCards(cardList)
-        ).catch((err) => {
-            console.log("Не загрузились карточки: " + err);
-        });
-      }, []);
-
+  const onSignOuttest = () => { // ---выход
+    setLoggedIn(false);
+    localStorage.removeItem('jwt');
+    setCurrentUser({});
+    history.push('/');
+  }
+  function handleUpdateUser(data) { // -- обовление инфы юзера
+    setIsLoading(true);
+    auth.patchUserData(data)
+    .then((userData) => {
+      setCurrentUser(userData)
+    }).catch((err) => {
+      console.log("Не загрузить описание профиля: " + err);
+    }).finally(()=>{setIsLoading(false)})
+  }
+  
   return (
     <CurrentUserContext.Provider value={currentUSer}>
     <div className='body'>
@@ -101,12 +87,11 @@ function App() {
           loggedIn={loggedIn} 
           component={Movies}
           isloading={isloading}
-          cards={cards}
         />
         <ProtectedRoute
           path='/saved-movies'
           loggedIn={loggedIn}
-          component={SavedMovies}
+          component={Movies}
           isloading={isloading}
         />
         <ProtectedRoute
@@ -131,7 +116,7 @@ function App() {
           />
         </Route>
 
-        <Route path='/eror'>
+        <Route path='*'>
           <BigEror />
         </Route>
       

@@ -1,17 +1,31 @@
 import '../Movies/Movies.css';
-import SearchForm from '../SearchForm/SearchForm';
+import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
-import HeaderAuth from '../Header/components/HeaderAuth/HeaderAuth'
-import Footer from "../Footer/Footer";
-function Movies() {
+import calculateMovieDuration from "../../utils/calculateMoviesDuration";
+
+function Movies({ handleSaveBtnClick, savedMovies, moviesError}){
+  //console.log(moviesError)
   return (
-    <section className='common-container additional-option'>
-    <HeaderAuth/>
-    <SearchForm/>
-    <MoviesCardList/>
-    <button className="cards__more">Ещё</button>
-    <Footer />
-    </section>
+    <>
+      {moviesError !== "" ? (
+        <p className={`savedmovies-list__noresult`}>{moviesError}</p>
+      ) : (
+      <section className='common-container additional-option'>
+          {savedMovies.map((savedMovie) => (
+              <MoviesCardList
+                movie={savedMovie}
+                key={savedMovie.movieId}
+                movieTitle={savedMovie.nameRU}
+                movieDuration={calculateMovieDuration(savedMovie.duration)}
+                movieTrailer={savedMovie.trailer}
+                movieImage={savedMovie.image}
+                handleSaveBtnClick={handleSaveBtnClick}
+                savedMovies={savedMovies}
+              />
+            ))}
+      </section>
+      )}
+    </>
   );
 }
 

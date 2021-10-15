@@ -8,8 +8,8 @@ import { useFormWithValidation } from '../../validation/validation';
 function Profile({handleUpdateUser,onSignOut,isLoading}) {
   const formValidation = useFormWithValidation();
   const currentUser = React.useContext(CurrentUserContext);
-  const [name, setName] = React.useState(currentUser.data.name || '');
-  const [email, setEmail] = React.useState(currentUser.data.email || '');
+  const [name, setName] = React.useState(currentUser.data.name);
+  const [email, setEmail] = React.useState(currentUser.data.email);
 
   React.useEffect(() => {
       setEmail(formValidation.values.email);
@@ -31,7 +31,7 @@ function Profile({handleUpdateUser,onSignOut,isLoading}) {
          <form className='profile__form' onSubmit={onSubmit}>
                     <label className='profile__data'>Имя
                         <input  className='profile__input'
-                                defaultValue={name}
+                                defaultValue={name || ''}
                                 type='text'
                                 name='name'
                                 placeholder='имя'
@@ -42,11 +42,11 @@ function Profile({handleUpdateUser,onSignOut,isLoading}) {
                                 maxLength="40"
                         />
                         <span className="profile__error" id="name-error">{formValidation.errors.name}</span>
-                        {isLoading && <div className='profile__loader'><Preloader />ddwdawd</div>}
+                        {isLoading && <div className='profile__loader'><Preloader /></div>}
                     </label>
                     <label className='profile__data'>E-mail
                         <input  className='profile__input'
-                                defaultValue={email} 
+                                defaultValue={email || ''} 
                                 type='email'
                                 name='email'
                                 placeholder='email'

@@ -12,8 +12,7 @@ function Login({handleLogin,isLoading}) {
 
   function handleSubmit(evt){
     evt.preventDefault()
-    isValid &&
-      handleLogin(email,password);
+    handleLogin(email,password);
   }
   return (
        <AuthForm

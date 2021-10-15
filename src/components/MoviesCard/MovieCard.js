@@ -1,41 +1,41 @@
+import React from 'react';
 import './MovieCard.css';
 import { useLocation  } from "react-router-dom";
-import obzlozka from '../../images/oblozka.svg';
+import { MOVIES } from "./../../utils/utils";
 
-function MovieCard({card,movieSaved}) {
+function MovieCard({movie, handleSaveBtnClick,savedMovies,movieDuration, movieImage,movieTrailer,movieTitle}) {
 
-  const imgsrc = () => { // ---что бы изображения отображались добавили url сервера к относттельному путю
-    if(card.image) {
-        return `${movieSaved ? `${card.image}` : `https://api.nomoreparties.co${card.image.url}`}`;  
-    } else {
-        return null;
-    }
-  }
-  const duration = () => { // ---- приводим время к нормальному значению
-    if (card.duration > 60) {
-        return (card.duration / 60 | 0) + " ч " + card.duration % 60 + " м";
-    } 
-    if (card.duration === 60) {
-        return (card.duration / 60) + " ч";
-    } else {
-        return card.duration + " м";
-    }
-  
-  }
   const { pathname } = useLocation();
 
-  const MOVIES = '/movies';
+  const [isSaved, setIsSaved] = React.useState("");
+
+  React.useEffect(() => {
+    if (savedMovies.some((item) => item.movieId === movie.id)) {
+      setIsSaved(true);
+    } else {
+      setIsSaved(false);
+    }
+  }, [savedMovies, movie.id]);
+
+  function handleClick(movie) {
+    handleSaveBtnClick(movie);
+  }
   return (
-    <li className='card'>
+    <li className='card' key={movie.id}>
        <div className='car__data'> 
         <div className='card__about'>
-            <div className='card__title'>{card.nameRU}</div>
-            <div className='card__time'>{duration()}</div>
+            <div className='card__title'>{movieTitle}</div>
+            <div className='card__time'>{movieDuration}</div>
         </div>
-        {pathname === MOVIES ? <button className='card__select'></button> : <button className='card__delete'></button>}
+        {pathname === MOVIES 
+        ? <button className={`card__select ${isSaved && 'card__select_hover'}`}
+        onClick={() => handleClick(movie)}></button> 
+        : <button className='card__delete'
+        onClick={() => handleClick(movie)}></button>
+        }
        </div>
-       <a className='card__link-youtube' href={card.trailerLink} target='_blank' rel='noreferrer'>
-          <img src={card.image ? imgsrc(): obzlozka} alt={`Постер фильма ${card.nameRU}`} className='card__oblozka'/>
+       <a className='card__link-youtube' href={movieTrailer} target='_blank' rel='noopener noreferrer'>
+          <img src={movieImage} alt={`Постер фильма ${movie.nameRU}`} className='card__oblozka'/>
        </a>      
     </li>
   );

@@ -1,6 +1,7 @@
 .error {
   min-height: 100vh;
   text-align: center;
+  padding: 0 0 60px 0;
 }
 .error__title {
   font-weight: normal;
@@ -23,7 +24,6 @@
   color: #4285f4;
 }
 .error_back {
-  margin: 0 0 60px 0;
   background-color: transparent;
   border: none;
   font-weight: normal;
@@ -31,6 +31,7 @@
   line-height: 17px;
   color: #4285f4;
   cursor: pointer;
+  text-decoration: none;
 }
 .error_back:hover{
     opacity: .6;
