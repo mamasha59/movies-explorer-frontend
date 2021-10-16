@@ -39,7 +39,8 @@ function Movies() {
     limitNumberOfCards();
     loadSavedMovies();
     loadLocalSavedMovies();
-    loadSearchedMovies();
+    //loadSearchedMovies();
+     // eslint-disable-next-line
   }, []);
   
   function limitNumberOfCards() {
@@ -143,6 +144,7 @@ function Movies() {
     }
   };
   //загрузка ранее найденнных фильмов
+   // eslint-disable-next-line
   const loadSearchedMovies = () => {
     if (localStorage.getItem("foundMovies") !== null) {
       setFoundMovies(JSON.parse(localStorage.getItem("foundMovies")));
@@ -221,15 +223,18 @@ function Movies() {
   }
   const moviesforShow = React.useMemo(
     () => filterShortMovies(foundMovies),
+     // eslint-disable-next-line
     [isShortMovies, foundMovies]
   );
   const savedMoviesforShow = React.useMemo(
     () => filterShortMovies(savedMovies),
+     // eslint-disable-next-line
     [isShortMovies, savedMovies]
   );
   // отображение кнопки еще
   React.useEffect(() => {
     loadMoreBtnVisible();
+     // eslint-disable-next-line
   }, [moviesforShow, numberOfCards]);
   //отслеживание изменение ширины экрана
   window.addEventListener("resize", function () {
@@ -240,7 +245,6 @@ function Movies() {
   return (
     <section className='common-container additional-option'>
     <HeaderAuth/>
-    
     <SearchForm
       onSubmit={searchMovieHandler}
       isShortMovies={isShortMovies}
@@ -251,23 +255,26 @@ function Movies() {
       {isLoading ? (
         <div className='profile__loader'><Preloader /></div>
       ) : (<MoviesCardList
-        movies={moviesforShow}
-        initalNumberOfCards={numberOfCards.startCards}
-        loadMoreBtnHandler={loadMoreBtnHandler}
-        loadMoreBtnVisibility={loadMoreBtnVisibility}
-        handleSaveBtnClick={handleSaveBtnClick}
-        savedMovies={savedMovies}
-        {...{ moviesError }}
+            movies={moviesforShow}
+            initalNumberOfCards={numberOfCards.startCards}
+            loadMoreBtnHandler={loadMoreBtnHandler}
+            loadMoreBtnVisibility={loadMoreBtnVisibility}
+            handleSaveBtnClick={handleSaveBtnClick}
+            savedMovies={savedMovies}
+            {...{ moviesError }}
           />
         )}
     </Route>
     <Route path="/saved-movies">
-      <SavedMovies
-        initalNumberOfCards={numberOfCards.startCards}
-        handleSaveBtnClick={handleSaveBtnClick}
-        savedMovies={savedMoviesforShow}
-        {...{ moviesError }}
-      />
+      {isLoading ? (
+        <div className='profile__loader'><Preloader /></div>
+      ) : (<SavedMovies
+            initalNumberOfCards={numberOfCards.startCards}
+            handleSaveBtnClick={handleSaveBtnClick}
+            savedMovies={savedMoviesforShow}
+            {...{ moviesError }}
+          />
+      )}
     </Route>
   </Switch>
 

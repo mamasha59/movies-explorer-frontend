@@ -7,21 +7,21 @@ import MoreButton from '../buttonMore/MoreButton';
 function MoviesCardList({
   movies,
   initalNumberOfCards,
+  moviesError,
   loadMoreBtnHandler,
   loadMoreBtnVisibility,
   handleSaveBtnClick,
   savedMovies,
-  moviesError
   }) {
   return (
     <>
     {moviesError !== "" ? (
-        <p className={`movies-list__noresult`}>{moviesError}</p>
+        <p className={`not-found`}>{moviesError}</p>
       ) : (
     <section className='cards'>
       <ul className='cards__list'>
-        {movies.slice(0,initalNumberOfCards).map((movie) => (
-        <MovieCard 
+          {movies.slice(0,initalNumberOfCards).map((movie) => (
+          <MovieCard 
           movie={movie}
           key={movie.id}
           movieTitle={movie.nameRU}

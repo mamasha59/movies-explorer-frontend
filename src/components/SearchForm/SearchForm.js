@@ -26,7 +26,8 @@ const inputElement = React.useRef(null);
                 <div className='search-form__check'>
                     <FilterCheckbox
                       isShortMovies={isShortMovies}
-                      setIsShortMovies={setIsShortMovies}/>
+                      setIsShortMovies={setIsShortMovies}
+                    />
                     <label className='search-form__togle-name'>Короткометражки</label>
                 </div>
         </div>

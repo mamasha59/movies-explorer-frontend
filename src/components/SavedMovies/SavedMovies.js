@@ -1,18 +1,22 @@
-import '../Movies/Movies.css';
 import React from 'react';
-import MoviesCardList from '../MoviesCardList/MoviesCardList'
+import '../Movies/Movies.css';
+import MovieCard from '../MoviesCard/MovieCard';
 import calculateMovieDuration from "../../utils/calculateMoviesDuration";
 
-function Movies({ handleSaveBtnClick, savedMovies, moviesError}){
-  //console.log(moviesError)
+export default function MoviesCardList({ 
+  moviesError,
+  handleSaveBtnClick,
+  savedMovies
+    }){
+  console.log(savedMovies)
   return (
     <>
       {moviesError !== "" ? (
-        <p className={`savedmovies-list__noresult`}>{moviesError}</p>
+        <p className={`not-found`}>{moviesError}</p>
       ) : (
       <section className='common-container additional-option'>
           {savedMovies.map((savedMovie) => (
-              <MoviesCardList
+              <MovieCard
                 movie={savedMovie}
                 key={savedMovie.movieId}
                 movieTitle={savedMovie.nameRU}
@@ -28,5 +32,3 @@ function Movies({ handleSaveBtnClick, savedMovies, moviesError}){
     </>
   );
 }
-
-export default Movies;

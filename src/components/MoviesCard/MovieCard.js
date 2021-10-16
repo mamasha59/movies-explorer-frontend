@@ -3,13 +3,22 @@ import './MovieCard.css';
 import { useLocation  } from "react-router-dom";
 import { MOVIES } from "./../../utils/utils";
 
-function MovieCard({movie, handleSaveBtnClick,savedMovies,movieDuration, movieImage,movieTrailer,movieTitle}) {
+function MovieCard({
+  movie,
+  movieTitle,
+  movieDuration,
+  movieTrailer,
+  movieImage,
+  handleSaveBtnClick,
+  savedMovies,
+    }) {
 
   const { pathname } = useLocation();
-
   const [isSaved, setIsSaved] = React.useState("");
 
   React.useEffect(() => {
+    console.log(movie)
+    debugger
     if (savedMovies.some((item) => item.movieId === movie.id)) {
       setIsSaved(true);
     } else {
@@ -20,6 +29,7 @@ function MovieCard({movie, handleSaveBtnClick,savedMovies,movieDuration, movieIm
   function handleClick(movie) {
     handleSaveBtnClick(movie);
   }
+
   return (
     <li className='card' key={movie.id}>
        <div className='car__data'> 
@@ -28,14 +38,15 @@ function MovieCard({movie, handleSaveBtnClick,savedMovies,movieDuration, movieIm
             <div className='card__time'>{movieDuration}</div>
         </div>
         {pathname === MOVIES 
-        ? <button className={`card__select ${isSaved && 'card__select_hover'}`}
-        onClick={() => handleClick(movie)}></button> 
-        : <button className='card__delete'
-        onClick={() => handleClick(movie)}></button>
+        ? (<button type="button" className={`card__select ${isSaved && 'card__select_hover'}`} 
+        onClick={() => handleClick(movie)}></button>)
+
+        : (<button type="button" className='card__delete' 
+        onClick={() => handleClick(movie)}></button>)
         }
        </div>
        <a className='card__link-youtube' href={movieTrailer} target='_blank' rel='noopener noreferrer'>
-          <img src={movieImage} alt={`Постер фильма ${movie.nameRU}`} className='card__oblozka'/>
+          <img src={movieImage} alt={`Постер фильма ${movieTitle}`} className='card__oblozka'/>
        </a>      
     </li>
   );

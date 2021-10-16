@@ -2,3 +2,7 @@
   max-width: 1140px;
   min-height: 100vh
 }
+.not-found{
+  padding: 0 0 0 15px;
+  color: #bb0707;
+}

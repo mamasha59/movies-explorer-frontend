@@ -86,13 +86,11 @@ function App() {
           path='/movies' 
           loggedIn={loggedIn} 
           component={Movies}
-          isloading={isloading}
         />
         <ProtectedRoute
           path='/saved-movies'
           loggedIn={loggedIn}
           component={Movies}
-          isloading={isloading}
         />
         <ProtectedRoute
           path='/profile'
