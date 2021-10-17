@@ -11,19 +11,20 @@ function MovieCard({
   movieImage,
   handleSaveBtnClick,
   savedMovies,
+  key
     }) {
 
   const { pathname } = useLocation();
   const [isSaved, setIsSaved] = React.useState("");
 
   React.useEffect(() => {
-    console.log(movie)
-    debugger
+    // console.log(movie)
     if (savedMovies.some((item) => item.movieId === movie.id)) {
       setIsSaved(true);
     } else {
       setIsSaved(false);
     }
+    // eslint-disable-next-line
   }, [savedMovies, movie.id]);
 
   function handleClick(movie) {

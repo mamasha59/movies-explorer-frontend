@@ -14,7 +14,8 @@ export default function MoviesCardList({
       {moviesError !== "" ? (
         <p className={`not-found`}>{moviesError}</p>
       ) : (
-      <section className='common-container additional-option'>
+      <section className={`common-container additional-option`}>
+        <ul className='cards__list'>
           {savedMovies.map((savedMovie) => (
               <MovieCard
                 movie={savedMovie}
@@ -27,6 +28,7 @@ export default function MoviesCardList({
                 savedMovies={savedMovies}
               />
             ))}
+        </ul>
       </section>
       )}
     </>

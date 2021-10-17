@@ -47,6 +47,9 @@
   height: 30px;
   border: none;
 }
+.card__select:hover {
+  opacity: 0.6;
+}
 .card__delete:hover {
   opacity: 0.6;
 }

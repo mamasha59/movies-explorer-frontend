@@ -39,7 +39,7 @@ function Movies() {
     limitNumberOfCards();
     loadSavedMovies();
     loadLocalSavedMovies();
-    //loadSearchedMovies();
+    loadSearchedMovies();
      // eslint-disable-next-line
   }, []);
   
@@ -155,11 +155,14 @@ function Movies() {
     mainApi
       .saveMovie(data)
       .then((newMovie) => {
-        setSavedMovies([newMovie.data, ...savedMovies]);
-        localStorage.setItem(
-          "savedMovies",
+        if(newMovie){
+          setSavedMovies([newMovie, ...savedMovies]);
+
+          localStorage.setItem(
+            "savedMovies",
           JSON.stringify([newMovie.data, ...savedMovies])
-        );
+        )
+          };
       })
       .catch((err) => console.log("Ошибка: ", err));
   };
@@ -270,9 +273,9 @@ function Movies() {
         <div className='profile__loader'><Preloader /></div>
       ) : (<SavedMovies
             initalNumberOfCards={numberOfCards.startCards}
+            {...{ moviesError }}
             handleSaveBtnClick={handleSaveBtnClick}
             savedMovies={savedMoviesforShow}
-            {...{ moviesError }}
           />
       )}
     </Route>

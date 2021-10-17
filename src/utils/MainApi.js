@@ -7,12 +7,7 @@ export const register = (email, password, name) => { // ---регистраци�
           "Content-Type": "application/json" 
       },
       body: JSON.stringify({email, password, name}),
-    }).then(res => {
-      if (res.ok) {
-          return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-  })};
+    }).then(checkResponse)};
 
 
   export const authorize = (email, password) => { // ---авторизация
@@ -28,13 +23,7 @@ export const register = (email, password, name) => { // ---регистраци�
           return res.json();
       }
       return Promise.reject(`Ошибка: ${res.status}`);
-  })
-    .then((data) => {
-      if (data.token) {
-        localStorage.setItem('jwt', data.token);
-        return data.token;
-      }
-    })
+  }).then(checkResponse)
   }
 
 export const getContent = (token) => { /// ---получаем весь контент юзера по токену
@@ -45,13 +34,7 @@ export const getContent = (token) => { /// ---получаем весь конт
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     }
-  })
-  .then(res => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-})
+  }).then(checkResponse)
   .then((data) => data)
 }
 export const patchUserData = (item) => { // ---- обновление инфы о юзере
@@ -67,12 +50,7 @@ export const patchUserData = (item) => { // ---- обновление инфы �
       name: item.name,
       email: item.email
   })
-  }).then(res => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  }).then(checkResponse)
 }
 export const getMovies = () => {
   const token = localStorage.getItem('jwt'); 
@@ -83,26 +61,18 @@ export const getMovies = () => {
       "Content-Type": "application/json",
       'Authorization': `Bearer ${token}`,
     },
-  }).then(res => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  }).then(checkResponse)
 };
 export const deleteMovie = (movieId) => {
+  const token = localStorage.getItem('jwt'); 
   return fetch(`${BASE_URL}/movies/${movieId}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      'Authorization': `Bearer ${token}`,
     },
-  }).then(res => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  }).then(checkResponse)
 };
 export const saveMovie = (data) => {
   const token = localStorage.getItem('jwt'); 
@@ -114,10 +84,8 @@ export const saveMovie = (data) => {
       'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(data),
-  }).then(res => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  }).then(checkResponse)
 };
+
+const checkResponse = (res) =>
+  res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);

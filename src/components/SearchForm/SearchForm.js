@@ -15,11 +15,11 @@ const inputElement = React.useRef(null);
         <div className='search-form__box'>
                 <form className='search-form__line' onSubmit={handleSubmitFind}>
                     <input
-                    className='seacrh__form__search'
-                    type='search'
-                    placeholder='Фильм'
-                    required
-                    ref={inputElement}
+                      className='seacrh__form__search'
+                      type='search'
+                      placeholder='Фильм'
+                      required
+                      ref={inputElement}
                     />
                     <button type='submit' className='search-form__find'>Найти</button>
                 </form>
