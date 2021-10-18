@@ -4,6 +4,7 @@ export const register = (email, password, name) => { // ---регистраци�
     return fetch(`${BASE_URL}/signup`, {
       method: 'POST',
       headers: {
+          Accept: "application/json",
           "Content-Type": "application/json" 
       },
       body: JSON.stringify({email, password, name}),
@@ -16,22 +17,22 @@ export const register = (email, password, name) => { // ---регистраци�
       method: 'POST',
       credentials: "include",
       headers: {
+           Accept: "application/json",
           'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email, password })
     }).then(checkResponse);
   }
 
-export const getContent = (token) => { /// ---получаем весь контент юзера по токену
+export const getContent = () => { /// ---получаем весь контент юзера по токену
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     credentials: "include",
     headers: {
+      Accept: "application/json",
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
     }
   }).then(checkResponse)
-  .then((data) => data)
 }
 export const patchUserData = (item) => { // ---- обновление инфы о юзере
   return fetch(`${BASE_URL}/users/me`, {

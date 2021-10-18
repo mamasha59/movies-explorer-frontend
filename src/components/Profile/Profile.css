@@ -65,8 +65,9 @@
   color: #fff;
   cursor: pointer;
 }
-.profile__edit-button_disabled {
-  color:  #8B8B8B
+.profile__edit-button-inactive{
+  cursor: not-allowed;
+  color: #b0b9b0;
 }
 .profile__button:hover {
   opacity: 0.6;
@@ -100,4 +101,15 @@
   top: 40px;
   color: #c73412;
   white-space: normal;
+}
+.succes{
+  color: #0de03b;
+}
+.nope{
+  color: #c73412;
+}
+.profile__edit-button_inactive{
+  cursor: not-allowed;
+    opacity: 0.6;
+    background-color: #b0b9b0;
 }

@@ -61,8 +61,8 @@ function Profile({handleUpdateUser,onSignOut,isLoading}) {
                         <span className="profile__error" id="email-error">{errors.email}</span>
                     </label>
                             
-            <button className={`profile__button_type_submit profile__button ${!isValid && "profile__edit-button_disabled"}`} disabled={!isValid && true} type='submit'>Редактировать</button>
-            <button className='profile__button profile__button_type_submit profile__buttons_red' onClick={onSignOut} type='submit'>Выйти из аккаунта</button>
+            <button className={`profile__button_type_submit profile__button ${!isValid && "profile__edit-button-inactive"}`} disabled={!isValid && true} type='submit'>Редактировать</button>
+            <button className='profile__button_type_submit profile__button profile__buttons_red' onClick={onSignOut} type='submit'>Выйти из аккаунта</button>
          </form>
     </section>
   );
