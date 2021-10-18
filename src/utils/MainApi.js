@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3001';
+import { BASE_URL } from "./utils";
  
 export const register = (email, password, name) => { // ---регистрация
     return fetch(`${BASE_URL}/signup`, {
@@ -7,30 +7,26 @@ export const register = (email, password, name) => { // ---регистраци�
           "Content-Type": "application/json" 
       },
       body: JSON.stringify({email, password, name}),
-    }).then(checkResponse)};
+    }).then(checkResponse)
+  };
 
 
-  export const authorize = (email, password) => { // ---авторизация
+  export const authorize = (email, password) => {
     return fetch(`${BASE_URL}/signin`, {
       method: 'POST',
+      credentials: "include",
       headers: {
           'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email, password })
-    })
-    .then(res => {
-      if (res.ok) {
-          return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-  }).then(checkResponse)
+    }).then(checkResponse);
   }
 
 export const getContent = (token) => { /// ---получаем весь контент юзера по токену
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
+    credentials: "include",
     headers: {
-      'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     }
@@ -38,13 +34,12 @@ export const getContent = (token) => { /// ---получаем весь конт
   .then((data) => data)
 }
 export const patchUserData = (item) => { // ---- обновление инфы о юзере
-  const token = localStorage.getItem('jwt'); 
   return fetch(`${BASE_URL}/users/me`, {
     method: 'PATCH',
+    credentials: "include",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify({
       name: item.name,
@@ -53,35 +48,32 @@ export const patchUserData = (item) => { // ---- обновление инфы �
   }).then(checkResponse)
 }
 export const getMovies = () => {
-  const token = localStorage.getItem('jwt'); 
   return fetch(`${BASE_URL}/movies`, {
     method: "GET",
+    credentials: "include",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      'Authorization': `Bearer ${token}`,
     },
   }).then(checkResponse)
 };
 export const deleteMovie = (movieId) => {
-  const token = localStorage.getItem('jwt'); 
   return fetch(`${BASE_URL}/movies/${movieId}`, {
     method: "DELETE",
+    credentials: "include",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      'Authorization': `Bearer ${token}`,
     },
   }).then(checkResponse)
 };
 export const saveMovie = (data) => {
-  const token = localStorage.getItem('jwt'); 
   return fetch(`${BASE_URL}/movies`, {
     method: "POST",
+    credentials: "include",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(data),
   }).then(checkResponse)

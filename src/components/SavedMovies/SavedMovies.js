@@ -3,12 +3,12 @@ import '../Movies/Movies.css';
 import MovieCard from '../MoviesCard/MovieCard';
 import calculateMovieDuration from "../../utils/calculateMoviesDuration";
 
-export default function MoviesCardList({ 
+export default function MoviesCardList({
   moviesError,
   handleSaveBtnClick,
   savedMovies
-    }){
-  console.log(savedMovies)
+    })
+    {
   return (
     <>
       {moviesError !== "" ? (

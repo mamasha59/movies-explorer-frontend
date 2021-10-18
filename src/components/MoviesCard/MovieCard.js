@@ -11,7 +11,6 @@ function MovieCard({
   movieImage,
   handleSaveBtnClick,
   savedMovies,
-  key
     }) {
 
   const { pathname } = useLocation();

@@ -155,8 +155,9 @@ function Movies() {
     mainApi
       .saveMovie(data)
       .then((newMovie) => {
+    
         if(newMovie){
-          setSavedMovies([newMovie, ...savedMovies]);
+          setSavedMovies([newMovie.data, ...savedMovies]);
 
           localStorage.setItem(
             "savedMovies",
