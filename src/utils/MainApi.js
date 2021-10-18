@@ -79,5 +79,13 @@ export const saveMovie = (data) => {
   }).then(checkResponse)
 };
 
+export const logout = () => {
+  return fetch(`${BASE_URL}/signout`, {
+    method: "POST",
+    credentials: "include",
+    redirect: "follow",
+  }).then(checkResponse);
+};
+
 const checkResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
