@@ -7,15 +7,15 @@ import AboutMe from "../AboutMe/AboutMe";
 import Footer from "../Footer/Footer";
 import './Main.css'
 
-function Main(){
+function Main({loggedIn}){
     return(
       <>
-          <Header />
-          <Promo />
-          <AboutPtoject />
+          <Header loggedIn={loggedIn}/>
+          <Promo/>
+          <AboutPtoject/>
           <Techs />
-          <AboutMe />
-          <Footer />
+          <AboutMe/>
+          <Footer/>
       </>
     );
 }

@@ -49,35 +49,40 @@
   display: flex;
   align-items: center;
 }
-.nav-auth__account-img{
-    padding: 0 0 0 7px;
-    object-fit: contain;
+.nav-auth__account-img {
+  padding: 0 0 0 7px;
+  object-fit: contain;
 }
-.nav__burger{
-    display: none;
+.nav__burger {
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+.nav__burger:hover {
+  opacity: 0.6;
 }
 @media screen and (max-width: 1170px) {
-    .nav-auth {
-        padding: 29px 30px;
-      }
+  .nav-auth {
+    padding: 29px 30px;
   }
+}
 @media screen and (max-width: 769px) {
-    .nav-auth__links {
-        display: none;
-    }
-    .nav__burger{
-        display: block;
+  .nav-auth__links {
+    display: none;
   }
-    .nav__burger{
-        display: block;
-    }
-    .nav-auth__account {
-        display: none;
-    }
-    .nav-auth {
-        padding: 29px 30px;
-      }
+  .nav__burger {
+    display: block;
   }
+  .nav__burger {
+    display: block;
+  }
+  .nav-auth__account {
+    display: none;
+  }
+  .nav-auth {
+    padding: 29px 30px;
+  }
+}
 @media screen and (max-width: 426px) {
   .nav-auth-signup {
     margin: 0 14px 0 0;

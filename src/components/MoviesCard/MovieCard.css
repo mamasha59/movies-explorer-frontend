@@ -8,6 +8,7 @@
   font-size: 15px;
   line-height: 18px;
   margin: 0 0 19px 0;
+  max-width: 265px;
 }
 .card__time {
   font-weight: normal;
@@ -24,7 +25,7 @@
   height: 30px;
   border: none;
 }
-.card__select:hover {
+.card__select_hover {
   background: url("../../images/selectIcon.svg") no-repeat;
   width: 30px;
   height: 30px;
@@ -35,12 +36,19 @@
 }
 .card__oblozka {
   width: 100%;
+  min-height: 203px;
+  display: block;
+  object-fit: cover;
+  height: 203px;
 }
 .card__delete {
   background: url("../../images/deleteMovie.svg") no-repeat;
   width: 30px;
   height: 30px;
   border: none;
+}
+.card__select:hover {
+  opacity: 0.6;
 }
 .card__delete:hover {
   opacity: 0.6;
