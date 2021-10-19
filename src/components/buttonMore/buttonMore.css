@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    visibility: hidden;
   }
   .cards__more:hover {
     opacity: 0.6;
@@ -22,6 +23,6 @@
       width: 240px;
     }
   }
-.cards__more_active {
+  .card__btn_active {
     visibility: visible;
 }

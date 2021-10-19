@@ -50,7 +50,7 @@ function Movies() {
     } else if (viewportWidth < TABLET_VERSION) {
       setNumberOfCards({ startCards: 8, rowCards: 2, moreCards: 2 });
     } else {
-      setNumberOfCards({ startCards: 12, rowCards: 3, moreCards: 3 });
+      setNumberOfCards({ startCards: 3, rowCards: 3, moreCards: 3 });
     }
   }
   // кнопка Еще

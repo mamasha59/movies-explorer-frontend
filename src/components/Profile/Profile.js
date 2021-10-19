@@ -10,12 +10,19 @@ function Profile({handleUpdateUser,onSignOut,isLoading}) {
   const currentUser = React.useContext(CurrentUserContext);
   const { values, setValues, handleChange, errors, isValid } =
     useFormWithValidation();
+    const [message, setMessage] = React.useState('')
   const { name, email } = values;
 
   const handleSubmitUpdateProfile = (evt) => {
     evt.preventDefault();
     if (currentUser.name !== name || currentUser.email !== email) {
       handleUpdateUser({ name, email });
+      if(currentUser.email !== email){
+        setMessage('Email - успешно обновлен!!')
+      }else if(currentUser.name !== name){
+        setMessage('Имя - успешно обновленно!!')
+      }
+      
     }
   };
 
@@ -29,7 +36,11 @@ function Profile({handleUpdateUser,onSignOut,isLoading}) {
   return (
     <section className='common-container additional-option '>
     <HeaderAuth/>
+    <div className='profile__container-title'>
        <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
+       
+       <div className='profile-update'>{message}</div>
+    </div>   
          <form className='profile__form' onSubmit={handleSubmitUpdateProfile}>
                     <label className='profile__data'>Имя
                         <input  className='profile__input'

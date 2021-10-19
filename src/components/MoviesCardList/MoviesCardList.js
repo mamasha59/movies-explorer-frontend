@@ -38,6 +38,8 @@ function MoviesCardList({
         ))}
       </ul>
       <MoreButton
+        movies={movies}
+        initalNumberOfCards={initalNumberOfCards}
         isVisible={loadMoreBtnVisibility}
         onClick={loadMoreBtnHandler}
       />
